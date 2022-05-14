@@ -11,11 +11,11 @@ const ParkDetails = (props) => {
 			<View style={styles.details}>
 				<View style={styles.price}>
 					<Text style={styles.priceText}>
-						{props.price} {props.priceUnit}
+						{props.details} {props.priceUnit}
 					</Text>
 				</View>
 				<View style={styles.timeUnit}>
-					<Text style={styles.timeUnitText}> /{props.timeUnit}</Text>
+					<Text style={styles.timeUnitText}> {props.timeUnit}</Text>
 				</View>
 			</View>
 		</View>
@@ -26,7 +26,6 @@ const styles = StyleSheet.create({
 	container: {
 		flexDirection: 'row',
 		flexWrap: 'wrap',
-		// flex: 1,
 		width: '85%',
 		backgroundColor: '#FCFCFF',
 		alignItems: 'center',

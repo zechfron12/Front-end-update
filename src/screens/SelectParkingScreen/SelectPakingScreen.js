@@ -1,23 +1,23 @@
 import { View, Text, StyleSheet, Switch } from 'react-native';
 import React, { useState } from 'react';
-import { MaterialIcons } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
 import ParkDetails from '../../components/ParkDetails';
 import SlotSelector from '../../components/SlotSelector';
 import MainButton from '../../components/MainButton/mainButton';
+import MySwitch from '../../components/MySwitch';
 
 const SelectPakingScreen = () => {
-	const [isEnabled, setIsEnabled] = useState(false);
-	const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
+	const [isReserved, setIsReserved] = useState(false);
 	return (
 		<View style={styles.container}>
-			<View>
-				<MaterialIcons name='menu' size={48} color='#FFFFFE' />
+			<View style={{ width: '85%' }}>
+				<Ionicons name='menu-sharp' size={45} color='#FFFFFE' />
 			</View>
 			<ParkDetails
 				title='Alexandru Ioan Cuza University of Iasi'
-				price='100'
+				details='100'
 				priceUnit='LEI'
-				timeUnit='Hr'
+				timeUnit='/ Hr'
 			></ParkDetails>
 			<Text style={styles.descriptiveText}>Select preferred space</Text>
 			<SlotSelector></SlotSelector>
@@ -26,14 +26,10 @@ const SelectPakingScreen = () => {
 				<Text style={styles.descriptiveText}>
 					Reserve spot for another time
 				</Text>
-				<Switch
-					style={{ transform: [{ scaleX: 1.2 }, { scaleY: 1.2 }] }}
-					trackColor={{ false: '#757F8C47', true: '#F9BC60' }}
-					thumbColor={isEnabled ? '#f4f3f4' : '#f4f3f4'}
-					ios_backgroundColor='#3e3e3e'
-					onValueChange={toggleSwitch}
-					value={isEnabled}
-				/>
+				<MySwitch
+					value={isReserved}
+					setValue={setIsReserved}
+				></MySwitch>
 			</View>
 			<MainButton text='continue'></MainButton>
 		</View>
