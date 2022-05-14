@@ -25,7 +25,7 @@ const parkingSpots = [
 	],
 	[
 		{ name: '4B', status: 'occupied' },
-		{ name: '5B', status: 'occupied' },
+		{ name: '5B', status: 'free' },
 		{ name: '6B', status: 'occupied' },
 	],
 	[
@@ -52,6 +52,10 @@ const parkingSpots = [
 
 const SelectPakingScreen = () => {
 	const [isReserved, setIsReserved] = useState(false);
+	const [selected, setSelected] = useState(null);
+	const handleSelected = (value) => {
+		setSelected(value);
+	};
 	return (
 		<View style={styles.container}>
 			<SideMenuBar />
@@ -62,7 +66,11 @@ const SelectPakingScreen = () => {
 				timeUnit='/ Hr'
 			/>
 			<Text style={styles.descriptiveText}>Select preferred space</Text>
-			<SlotSelector parkingSpots={parkingSpots} />
+			<SlotSelector
+				parkingSpots={parkingSpots}
+				handleSelected={handleSelected}
+				value={selected}
+			/>
 			<View style={styles.rowDisplay}>
 				<Text style={styles.descriptiveText}>
 					Reserve spot for another time

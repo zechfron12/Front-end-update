@@ -13,7 +13,11 @@ const SlotSelecor = (props) => {
 	});
 
 	const Chunks = props.parkingSpots.map((element) => (
-		<Chunk spots={element} />
+		<Chunk
+			spots={element}
+			handleSelected={props.handleSelected}
+			value={props.value}
+		/>
 	));
 	return (
 		<View style={styles.container}>

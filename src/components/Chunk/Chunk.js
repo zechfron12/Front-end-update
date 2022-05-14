@@ -16,8 +16,23 @@ const Chunk = (props) => {
 			);
 		else {
 			return (
-				<View style={styles.freeSpot}>
-					<Text style={styles.freeSpotText}>{element.name}</Text>
+				<View
+					style={[
+						styles.freeSpot,
+						{
+							backgroundColor:
+								props.value === element.name
+									? '#4BD37B'
+									: '#F9BC60',
+						},
+					]}
+				>
+					<Text
+						style={styles.freeSpotText}
+						onPress={() => props.handleSelected(element.name)}
+					>
+						{element.name}
+					</Text>
 				</View>
 			);
 		}
