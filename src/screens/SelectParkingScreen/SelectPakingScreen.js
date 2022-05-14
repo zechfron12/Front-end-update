@@ -15,7 +15,7 @@ const parkingSpots = [
 	],
 	[
 		{ name: '4A', status: 'occupied' },
-		{ name: '5A', status: 'occupied' },
+		{ name: '5A', status: 'free' },
 		{ name: '6A', status: 'occupied' },
 	],
 	[

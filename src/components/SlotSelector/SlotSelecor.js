@@ -1,17 +1,23 @@
 import { View, Text, StyleSheet } from 'react-native';
 import React from 'react';
 
-import { Ionicons } from '@expo/vector-icons';
-
 import Chunk from '../Chunk';
 
 const SlotSelecor = (props) => {
-	const chunks = props.parkingSpots.map((element) => (
-		<Chunk spots={element}></Chunk>
+	let freeSpots = 0;
+
+	props.parkingSpots.forEach((element) => {
+		element.forEach((e) => {
+			if (e.status === 'free') freeSpots++;
+		});
+	});
+
+	const Chunks = props.parkingSpots.map((element) => (
+		<Chunk spots={element} />
 	));
 	return (
 		<View style={styles.container}>
-			<Text style={styles.header}> 5 slots Avalible</Text>
+			<Text style={styles.header}> {freeSpots} slots Avalible</Text>
 			<View
 				style={{
 					width: '100%',
@@ -20,7 +26,7 @@ const SlotSelecor = (props) => {
 					flexWrap: 'wrap',
 				}}
 			>
-				{chunks}
+				{Chunks}
 			</View>
 		</View>
 	);

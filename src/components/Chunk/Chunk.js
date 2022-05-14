@@ -4,24 +4,31 @@ import React from 'react';
 import { Ionicons } from '@expo/vector-icons';
 
 const Chunk = (props) => {
-	const spot = props.spots.map((element) => {
+	const spots = props.spots.map((element) => {
 		if (element.status === 'occupied')
-			return <Ionicons name='car-sharp' size={30} color='#FFFFFF' />;
-		else
+			return (
+				<Ionicons
+					name='car-sharp'
+					size={30}
+					color='#FFFFFF'
+					style={{ marginHorizontal: 2 }}
+				/>
+			);
+		else {
 			return (
 				<View style={styles.freeSpot}>
 					<Text style={styles.freeSpotText}>{element.name}</Text>
 				</View>
 			);
+		}
 	});
 
-	return <View style={styles.container}>{spot}</View>;
+	return <View style={styles.container}>{spots}</View>;
 };
 
 const styles = StyleSheet.create({
 	container: {
 		flexDirection: 'row',
-		width: '40%',
 		justifyContent: 'space-between',
 		backgroundColor: '#E16162',
 		borderRadius: 6,
@@ -30,6 +37,7 @@ const styles = StyleSheet.create({
 	},
 	freeSpot: {
 		backgroundColor: '#F9BC60',
+		marginHorizontal: 2,
 		width: 30,
 		height: 30,
 		borderRadius: 6,
