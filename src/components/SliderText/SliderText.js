@@ -23,33 +23,14 @@ const SliderText = (props) => {
 
 	return (
 		<View style={[styles.slider, props.containerStyle]}>
-			<View
-				style={{
-					height: 50,
-					paddingHorizontal: 20,
-					transform: [{ translateX: left }],
-					justifyContent: 'center',
-					width: '40%',
-					backgroundColor: '#FCFCFF',
-					borderRadius: 6,
-					shadowColor: '#000',
-					shadowOffset: {
-						width: 0,
-						height: 2,
-					},
-					shadowOpacity: 0.23,
-					shadowRadius: 2.62,
-
-					elevation: 4,
-				}}
-			>
+			<View style={styles.row}>
+				<Text style={{ fontWeight: '400', fontSize: 16 }}>
+					Estimate Duration
+				</Text>
 				<Text style={[styles.text, props.customCountStyle]}>
 					{Math.floor(sliderValue) + ' hours'}
 				</Text>
 			</View>
-			<Text style={{ fontWeight: '400', fontSize: 16 }}>
-				Estimate Duration
-			</Text>
 			<Slider
 				style={[styles.slider, props.sliderStyle]}
 				minimumValue={props.minimumValue || 0}
@@ -75,7 +56,7 @@ const styles = StyleSheet.create({
 	},
 	slider: {
 		width: width - 20,
-		marginVertical: 20,
+		marginVertical: 10,
 		alignSelf: 'center',
 	},
 	row: {

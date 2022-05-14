@@ -76,7 +76,7 @@ const BookSpaceOptions = () => {
 			</View>
 			<View
 				style={{
-					padding: 10,
+					paddingHorizontal: 10,
 					flexDirection: 'row',
 					justifyContent: 'space-between',
 					alignItems: 'center',
@@ -99,7 +99,7 @@ const BookSpaceOptions = () => {
 			</View>
 			<View
 				style={{
-					padding: 10,
+					paddingHorizontal: 10,
 					flexDirection: 'row',
 					justifyContent: 'space-between',
 					alignItems: 'center',
@@ -128,7 +128,7 @@ const BookSpaceOptions = () => {
 
 const styles = StyleSheet.create({
 	container: {
-		paddingTop: 6,
+		paddingBottom: 6,
 		backgroundColor: '#FFF',
 		width: '85%',
 		borderRadius: 6,

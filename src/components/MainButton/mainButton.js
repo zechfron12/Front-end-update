@@ -10,7 +10,14 @@ const styles = StyleSheet.create({
 		width: '85%',
 		color: '#001E1D',
 		borderRadius: 6,
+		shadowColor: '#F9BC60',
+		shadowOffset: {
+			width: 0,
+			height: 12,
+		},
+		shadowOpacity: 0.58,
 		shadowRadius: 16.0,
+
 		elevation: 24,
 	},
 });
