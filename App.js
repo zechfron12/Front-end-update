@@ -8,11 +8,11 @@ import Succes from './src/screens/Succes';
 export default function App() {
 	return (
 		// <View>
-		// <SelectPakingScreen></SelectPakingScreen>
-		<BookSpace></BookSpace>
-		// <MakePayment></MakePayment>
-		// <OTP></OTP>
-		// <Succes></Succes>
+		<SelectPakingScreen />
+		// <BookSpace />
+		// <MakePayment />
+		// <OTP />
+		// <Succes />
 		// </View>
 	);
 }

@@ -16,15 +16,15 @@ const BookSpace = () => {
 	const hideModal = () => setVisible(false);
 	return (
 		<View style={styles.container}>
-			<SideMenuBar></SideMenuBar>
+			<SideMenuBar />
 			<ParkDetails
 				title='Faculty of Computer Science Park A'
 				details='100 LEI'
 				timeUnit='/ Hr'
-			></ParkDetails>
+			/>
 			<Text style={styles.descriptiveText}> Space 4c </Text>
-			<BookSpaceOptions></BookSpaceOptions>
-			<MainButton text='Book Space' onPress={showModal}></MainButton>
+			<BookSpaceOptions />
+			<MainButton text='Book Space' onPress={showModal} />
 			<Modal
 				style={styles.modal}
 				visible={visible}
@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
 		paddingBottom: 10,
 	},
 	modal: {
-		backgroundColor: 'rgba(196, 196, 196, 0.3)',
+		backgroundColor: 'rgba(196, 196, 196, 0.4)',
 		flex: 1,
 		alignItems: 'center',
 		justifyContent: 'center',

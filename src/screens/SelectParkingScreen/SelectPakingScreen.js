@@ -1,37 +1,75 @@
 import { View, Text, StyleSheet, Switch } from 'react-native';
 import React, { useState } from 'react';
-import { Ionicons } from '@expo/vector-icons';
+
 import ParkDetails from '../../components/ParkDetails';
 import SlotSelector from '../../components/SlotSelector';
 import MainButton from '../../components/MainButton/mainButton';
 import MySwitch from '../../components/MySwitch';
+import SideMenuBar from '../../components/SideMenuBar';
+
+const parkingSpots = [
+	[
+		{ name: '1A', status: 'occupied' },
+		{ name: '2A', status: 'occupied' },
+		{ name: '3A', status: 'occupied' },
+	],
+	[
+		{ name: '4A', status: 'occupied' },
+		{ name: '5A', status: 'occupied' },
+		{ name: '6A', status: 'occupied' },
+	],
+	[
+		{ name: '1B', status: 'occupied' },
+		{ name: '2B', status: 'free' },
+		{ name: '3B', status: 'free' },
+	],
+	[
+		{ name: '4B', status: 'occupied' },
+		{ name: '5B', status: 'occupied' },
+		{ name: '6B', status: 'occupied' },
+	],
+	[
+		{ name: '1C', status: 'occupied' },
+		{ name: '2C', status: 'occupied' },
+		{ name: '3C', status: 'occupied' },
+	],
+	[
+		{ name: '4C', status: 'occupied' },
+		{ name: '5C', status: 'free' },
+		{ name: '6C', status: 'occupied' },
+	],
+	[
+		{ name: '1D', status: 'free' },
+		{ name: '2D', status: 'free' },
+		{ name: '3D', status: 'occupied' },
+	],
+	[
+		{ name: '4D', status: 'occupied' },
+		{ name: '5D', status: 'occupied' },
+		{ name: '6D', status: 'occupied' },
+	],
+];
 
 const SelectPakingScreen = () => {
 	const [isReserved, setIsReserved] = useState(false);
 	return (
 		<View style={styles.container}>
-			<View style={{ width: '85%' }}>
-				<Ionicons name='menu-sharp' size={45} color='#FFFFFE' />
-			</View>
+			<SideMenuBar />
 			<ParkDetails
 				title='Alexandru Ioan Cuza University of Iasi'
 				details='100'
 				priceUnit='LEI'
 				timeUnit='/ Hr'
-			></ParkDetails>
+			/>
 			<Text style={styles.descriptiveText}>Select preferred space</Text>
-			<SlotSelector></SlotSelector>
-
+			<SlotSelector parkingSpots={parkingSpots} />
 			<View style={styles.rowDisplay}>
 				<Text style={styles.descriptiveText}>
 					Reserve spot for another time
 				</Text>
-				<MySwitch
-					value={isReserved}
-					setValue={setIsReserved}
-				></MySwitch>
+				<MySwitch value={isReserved} setValue={setIsReserved} />
 			</View>
-			<MainButton text='continue'></MainButton>
+			<MainButton text='continue' />
 		</View>
 	);
 };
@@ -52,7 +90,6 @@ const styles = StyleSheet.create({
 	},
 	rowDisplay: {
 		flexDirection: 'row',
-		justifyContent: 'flex-end',
 		flexWrap: 'nowrap',
 		margin: 10,
 	},
